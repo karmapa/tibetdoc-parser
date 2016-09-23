@@ -4,7 +4,7 @@
 	of a document created from TibetDoc.
 */
 var AnsiTibetan = require('./ansitable.js');
-var toHTML = require('./tibetdoc.js');
+var toHTML = require('./tibetdoc.js').toHTML;
 var tags = {
 	49: 'hilite1',
 	50: 'hilite2',
