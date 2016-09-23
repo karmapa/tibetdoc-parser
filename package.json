@@ -17,6 +17,9 @@
   ],
   "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "mocha": "2.4.5"
+  },
   "bugs": {
     "url": "https://github.com/karmapa/tibetdoc-parser/issues"
   },
