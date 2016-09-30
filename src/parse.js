@@ -229,39 +229,7 @@ function dctToJson(binaryBlob) {
 	return H;
 }
 
-if ('undefined' !== typeof(module)) {
-	var fs = require('fs');
-	try {
-		require('./html');
-	}
-	catch (e) {
-		console.log('try html.yy');
-	}
-	AnsiTibetan = eval('x=' + fs.readFileSync(__dirname +
-		'/ansitable.js').toString());
-
-	function parseFile(fname) {
-		return dctToJson(fs.readFileSync(fname, 'binary').toString());
-	}
-
-	var convertFile = function (input) {
-		var json = parseFile(input);
-		var html = toHTML(json);
-		fs.writeFileSync(input + '.html', html, 'utf8');
-	};
-
-	module.exports = {
-		JSONToHTML: toHTML,
-		parse: dctToJson,
-		parseFile: parseFile
-	};
-
-	if (typeof (process) !== 'undefined' && process.argv.length > 2) {
-		convertFile(process.argv[2]);
-	}
-} else {
-	window.TibetDoc = {
-		Parse: dctToJson,
-		JSONToHTML: toHTML
-	};
-}
+module.exports = {
+	JSONToHTML: toHTML,
+	parse: dctToJson,
+};
