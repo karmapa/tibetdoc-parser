@@ -3,7 +3,8 @@
 	KOUL - Ksana Open Unicode Layout - the Javascript or JSON representation
 	of a document created from TibetDoc.
 */
-var AnsiTibetan = require('./ansitable.js');
+var fs = require('fs');
+var AnsiTibetan = eval('x=' + fs.readFileSync(__dirname + '/ansitable.js').toString());
 var toHTML = require('./tibetdoc.js').toHTML;
 var tags = {
 	49: 'hilite1',
@@ -229,7 +230,18 @@ function dctToJson(binaryBlob) {
 	return H;
 }
 
+function parseFile(fname) {
+	return dctToJson(fs.readFileSync(fname, 'binary').toString());
+}
+
+var convertFile = function (input) {
+	var json = parseFile(input);
+	var html = toHTML(json);
+	fs.writeFileSync(input + '.html', html, 'utf8');
+};
+
 module.exports = {
 	JSONToHTML: toHTML,
 	parse: dctToJson,
+	parseFile: parseFile
 };
