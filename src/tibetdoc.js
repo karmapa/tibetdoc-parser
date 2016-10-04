@@ -1,7 +1,4 @@
 // Transpiled from Elfu
-var css = '#a {font-size:200%;font-family:"microsoft himalaya";' +
-	'margin-left:100px;margin-right:100px}\n' +
-	'\tp { text-indent: 0px }\n' + '\n' + '';
 var styleTag = {
 	bold: 'font-weight: bold;',
 	italic: 'font-style: italic;',
@@ -110,6 +107,6 @@ exports.toHTML = function (a, b, c) {
 			}
 		}
 	}
-	return '<html><meta charset="utf8"><style>' + css +
+	return '<html><meta charset="utf8"><style>' +
 		'</style>\n<body>' + html.join('');
 };
