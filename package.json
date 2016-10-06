@@ -2,7 +2,7 @@
   "name": "tibetdoc-parser",
   "version": "0.0.1",
   "description": "tibetdoc parser",
-  "main": "src/parse.js",
+  "main": "src/parser.js",
   "scripts": {
     "test": "mocha"
   },

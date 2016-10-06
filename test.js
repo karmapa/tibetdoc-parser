@@ -1,5 +1,5 @@
 var fs = require('fs');
-var parser = require('./src/parse.js');
+var parser = require('./src/parser.js');
 var content = fs.readFileSync('./test.dct', 'binary');
 var assert = require('assert');
 
