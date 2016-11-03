@@ -237,7 +237,7 @@ var convertFile = function(input) {
 	var json = parseFile(input);
 	var html = toHTML(json);
 	fs.writeFileSync(input + '.html', html, 'utf8');
-};
+}
 
 var createURL = function(data) {
 	var downLoad = new Blob([data], {encoding: 'utf8', type: 'text/html'});
@@ -245,9 +245,15 @@ var createURL = function(data) {
 	return url;
 }
 
+var removeHTMLTag = function(html) {
+	var data = html..replace(/<p.+?>/g, '\n').replace(/&nbsp;/g, ' ').replace(/<.+?>/g, '').replace(/^\r?\n/g, '');
+	return data;
+}
+
 module.exports = {
 	JSONToHTML: toHTML,
 	parse: dctToJson,
 	parseFile: parseFile,
-	createURL: createURL
+	createURL: createURL,
+	removeHTMLTag: removeHTMLTag
 };
