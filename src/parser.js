@@ -245,8 +245,8 @@ var createURL = function(data) {
 	return url;
 }
 
-var removeHTMLTag = function(html) {
-	var data = html.replace(/<p.+?>/g, '\n').replace(/&nbsp;/g, ' ').replace(/<.+?>/g, '').replace(/^\r?\n/g, '');
+var leaveHTML = function(str) {
+	var data = str.replace(/<p.+?>/g, '\n').replace(/&nbsp;/g, ' ').replace(/<.+?>/g, '').replace(/^\r?\n/g, '');
 	return data;
 }
 
@@ -255,5 +255,5 @@ module.exports = {
 	parse: dctToJson,
 	parseFile: parseFile,
 	createURL: createURL,
-	removeHTMLTag: removeHTMLTag
+	HTMLtoText: leaveHTML
 };
