@@ -246,7 +246,7 @@ var createURL = function(data) {
 }
 
 var removeHTMLTag = function(html) {
-	var data = html..replace(/<p.+?>/g, '\n').replace(/&nbsp;/g, ' ').replace(/<.+?>/g, '').replace(/^\r?\n/g, '');
+	var data = html.replace(/<p.+?>/g, '\n').replace(/&nbsp;/g, ' ').replace(/<.+?>/g, '').replace(/^\r?\n/g, '');
 	return data;
 }
 
