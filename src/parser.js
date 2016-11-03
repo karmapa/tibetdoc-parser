@@ -233,14 +233,21 @@ function parseFile(fname) {
 	return dctToJson(fs.readFileSync(fname, 'binary').toString());
 }
 
-var convertFile = function (input) {
+var convertFile = function(input) {
 	var json = parseFile(input);
 	var html = toHTML(json);
 	fs.writeFileSync(input + '.html', html, 'utf8');
 };
 
+var createURL = function(data) {
+	var downLoad = new Blob([data], {encoding: 'utf8', type: 'text/html'});
+	var url = URL.createObjectURL(downLoad);
+	return url;
+}
+
 module.exports = {
 	JSONToHTML: toHTML,
 	parse: dctToJson,
-	parseFile: parseFile
+	parseFile: parseFile,
+	createURL: createURL
 };
